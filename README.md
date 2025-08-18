@@ -5,3 +5,4 @@ This project is a JavaScript-based Cafe Management System designed to simulate r
 <img width="465" height="664" alt="image" src="https://github.com/user-attachments/assets/b9de4bb9-1064-49d2-add2-9df08db4d076" />
 <img width="425" height="587" alt="image" src="https://github.com/user-attachments/assets/43ac046b-157d-4b20-be32-bb6c2b431636" />
 <img width="676" height="420" alt="image" src="https://github.com/user-attachments/assets/b8902fbf-228d-4866-a237-e6dca4d41818" />
+<img width="300" height="592" alt="image" src="https://github.com/user-attachments/assets/58862ae7-2463-4387-b235-c3ac0cd676de" />
