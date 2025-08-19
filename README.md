@@ -20,4 +20,5 @@ Simple and clean UI with hover animations
 
 This project demonstrates DOM manipulation, event handling, and expression evaluation in JavaScript, making it a great beginner project for front-end development practice.
 
-<img width="1912" height="901" alt="image" src="https://github.com/user-attachments/assets/01652654-0995-4672-a8eb-22816c9317cb" />
+<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/d3696e7a-8129-4bd7-bad8-36e04b26a86e" />
+
