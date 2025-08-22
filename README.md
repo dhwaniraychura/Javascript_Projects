@@ -1,24 +1,34 @@
-Smart_Calculator
+📱 Smart Calculator
+📖 Project Description
 
-📌 Project Description: Smart Calculator
+The Smart Calculator is a modern web-based calculator built using HTML, CSS, and JavaScript.
+It performs not only basic arithmetic operations but also advanced mathematical functions like square, cube, factorial, and even/odd detection. The calculator has a clean UI with glowing buttons, smooth hover effects, and proper error handling for invalid inputs (like division by zero or factorial of a negative number).
 
-The Smart Calculator is a web-based calculator built using HTML, CSS, and JavaScript. It allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, division, and modulus with an easy-to-use interface.
+The project is simple yet powerful, making it a perfect combination of design + logic building in JavaScript.
 
-The design includes a modern gradient background, styled buttons with hover effects, and a clear input display that mimics the look and feel of a real calculator. Users can reset calculations with AC, remove the last digit with DEL, and work with decimals.
+✨ Features
 
-Key Features:
+✔️ Basic operations → Addition, Subtraction, Multiplication, Division, Modulo (%)
+✔️ Advanced operations →
 
-Supports operations: +, -, *, /, %
+Square (x²)
 
-Handles decimal values
+Cube (x³)
 
-Clear (AC) and Delete (DEL) functions
+Factorial (x!)
 
-Input length limitation for error-free usage
+Even/Odd detection
+✔️ Delete (DEL) and Clear (AC) buttons
+✔️ Error handling →
 
-Simple and clean UI with hover animations
+Invalid input (like 5+) shows "Error" and clears automatically
 
-This project demonstrates DOM manipulation, event handling, and expression evaluation in JavaScript, making it a great beginner project for front-end development practice.
+Division by zero handled safely
+✔️ Responsive and modern UI with gradient background and hover effects
+✔️ Input limited to 10 characters for neat display
 
 <img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/d3696e7a-8129-4bd7-bad8-36e04b26a86e" />
+<img width="654" height="783" alt="image" src="https://github.com/user-attachments/assets/1c3d94f2-6bbb-44e5-bba0-d826815c321f" />
+<img width="542" height="748" alt="image" src="https://github.com/user-attachments/assets/0b9da8e7-a7b0-4ee6-812b-2fdb6cac671e" />
+
 
