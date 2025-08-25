@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart_Travel_Object</title>
+</head>
+
+<body>
+  <script>
+    let destination = [];
+    let destinations;
+
+    do {
+      destinations = parseInt(prompt("How many destinations you want to visit (3-5):"));
+      if (isNaN(destinations) || destinations < 3 || destinations > 5) {
+        alert("⚠️ Please enter a valid number between 3 and 5.");
+      }
+    } while (isNaN(destinations) || destinations < 3 || destinations > 5);
+
+
+    for (let i = 0; i < destinations; i++) {
+      let place;
+      do {
+        place = prompt(`Enter Destination ${i + 1} (letters only):`);
+        if (!/^[a-zA-Z\s]+$/.test(place)) {
+          alert("❌ Invalid! Use letters only (A-Z).");
+          place = null;
+        }
+      } while (!place);
+      destination.push(place);
+    }
+
+
+    let budget;
+    do {
+      budget = parseInt(prompt("Enter your travel budget (minimum 1000):"));
+      if (isNaN(budget) || budget < 1000) {
+        alert("⚠️ Please enter a valid budget (1000 or more).");
+      }
+    } while (isNaN(budget) || budget < 1000);
+
+
+    let tripType = "";
+    if (budget <= 10000) {
+        tripType = "Plan a short domestic trip";
+    }
+    else if (budget <= 50000){
+        tripType = "You can plan a long domestic trip";
+    } 
+    else {
+        tripType = "International trip possible!!";
+    }
+
+    let days;
+    do {
+      days = parseInt(prompt("How many days you want to plan (1-100):"));
+      if (isNaN(days) || days < 1 || days > 100) {
+        alert("⚠️ Please enter a valid number of days (1-100).");
+      }
+    } while (isNaN(days) || days < 1 || days > 100);
+
+
+    let tripDuration = "";
+    if (days <= 3) {
+        tripDuration = "Weekend Getaway.";
+    }
+    else if (days <= 7) {
+        tripDuration = "Perfect Holiday Trip.";
+    }
+    else {
+        tripDuration = "Extended Vacation.";
+    }
+    const hotelSuggestion = (budget, days) => {
+      let perDay = budget / days;
+      if (perDay <= 2000){
+        return "Budget Hotels.";
+      } 
+      else if (perDay <= 5000) {
+        return "Mid-range Hotels.";
+      }
+      else {
+        return "Luxury Hotels.";
+      }
+    };
+
+    let hotel = hotelSuggestion(budget, days);
+
+    document.write("<h1>=== Final Travel Summary ===</h1>");
+    document.write(`<p><b>Destinations:</b> ${destination.join(", ")}</p>`);
+    document.write(`<p><b>Total Budget:</b> ₹${budget}</p>`);
+    document.write(`<p><b>Days Planned:</b> ${days}</p>`);
+    document.write(`<p><b>Trip Duration:</b> ${tripDuration}</p>`);
+    document.write(`<p><b>Trip Type:</b> ${tripType}</p>`);
+    document.write(`<p><b>Hotel Suggestion:</b> ${hotel}</p>`);
+    document.write("<h2>🎉 Enjoy Your Trip! 🎉</h2>");
+    console.log("=== Final Travel Summary ===");
+    console.log("Destinations:", JSON.stringify(destination));
+    console.log(`Total Budget: ₹${budget}`);
+    console.log(`Days Planned: ${days}`);
+    console.log(`Trip Duration: ${tripDuration}`);
+    console.log(`Hotel Suggestion: ${hotel}`);
+    console.log(`Trip Type: ${tripType}`);
+    console.log("🎉 Enjoy Your Trip! 🎉");
+  </script>
+</body>
+
+</html>
