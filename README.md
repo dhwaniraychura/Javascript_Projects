@@ -15,3 +15,5 @@ This project helped me practice JavaScript fundamentals such as loops, condition
 
 <img width="772" height="436" alt="image" src="https://github.com/user-attachments/assets/4e5bed78-4ad1-41cf-b8a1-7a392c7eb442" />
 <img width="496" height="291" alt="image" src="https://github.com/user-attachments/assets/8a2bbbd4-b2f7-4447-82c9-34b7d663b4ac" />
+<img width="515" height="138" alt="image" src="https://github.com/user-attachments/assets/6f1b7170-16b5-4c15-90d0-04b385441b3a" />
+<img width="494" height="160" alt="image" src="https://github.com/user-attachments/assets/dc3398ed-1bef-4038-86e8-39fe5961cc67" />
