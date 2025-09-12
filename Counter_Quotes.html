@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter & Quotes Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+    }
+
+body {
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #c471f2, #f76cc6);
+ }
+.count_background {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+.count_item {
+    width: 250px;
+    height: 250px;
+    padding: 5px;
+    margin: auto;
+    background: white;
+    font-size: 25px;
+     font-weight: bold;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #ff3c78;
+     box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+button {
+     width: 150px;
+     height: 55px;
+     margin: 10px;
+     font-size: 18px;
+     border: none;
+     border-radius: 30px;
+     cursor: pointer;
+     color: white;
+     background: linear-gradient(135deg, #6a11cb, #2575fc);
+     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quotes {
+     max-width: 600px;
+     font-size: 22px;
+     text-align: center;
+     padding: 20px;
+     margin-top: 30px;
+     background: rgba(255, 255, 255, 0.15);
+     color: white;
+     border-radius: 15px;
+     backdrop-filter: blur(10px);
+     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.prev,
+.next {
+     position: absolute;
+     background: rgba(0, 0, 0, 0.5);
+     color: white;
+     border: none;
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+ }
+
+.prev {
+    left: 25%;
+    bottom: 20%;
+}
+
+.next {
+    right: 25%;
+    bottom: 20%;
+}
+</style>
+</head>
+
+<body>
+    <div class="count_background">
+        <div class="count_item"></div>
+        <button onclick="startCount()">Start</button>
+        <button onclick="pauseCount()">Pause</button>
+    </div>
+    <div class="quotes"></div>
+    <button class="prev" onclick="prev()"><i class="fa-solid fa-angle-left"></i></button>
+    <button class="next" onclick="next()"><i class="fa-solid fa-angle-right"></i></button>
+  <script>
+    let days = 10;
+    let hour = 5;
+    let min = 20;
+    let second = 45;
+    let timer = null;
+
+    document.querySelector(".count_item").innerHTML = `${days}d : ${hour}h : ${min}m : ${second}s`;
+
+    function startCount() {
+        if (timer !== null){
+            return;
+        } 
+
+        timer = setInterval(() => {
+            second--;
+
+            if (second < 0) {
+                second = 59;
+                min--;
+            }
+            if (min < 0) {
+                min = 59;
+                hour--;
+            }
+            if (hour < 0) {
+                hour = 23;
+                days--;
+            }
+            if (days === 0 && hour === 0 && min === 0 && second === 0) {
+                clearInterval(timer);
+                timer = null;
+                document.querySelector(".count_item").innerHTML = "⏰ Time's Up!";
+                return;
+            }
+            document.querySelector(".count_item").innerHTML = `${days}d : ${hour}h : ${min}m : ${second}s`;
+        }, 1000);
+    }
+    function pauseCount() {
+        clearInterval(timer);
+        timer = null;
+    }
+    let index = 0;
+    let quotes = [
+        "Push yourself, because no one else is going to do it for you.",
+        "Great things never come from comfort zones.",
+        "Small progress each day adds up to big results.",
+        "Don't wait for opportunity, create it.",
+        "Success doesn't come from what you do occasionally, it comes from what you do consistently."
+    ];
+    document.querySelector(".quotes").innerHTML = quotes[index];
+
+    setInterval(() => {
+        document.querySelector(".quotes").innerHTML = quotes[index];
+        index++;
+        if (index >= quotes.length) {
+            index = 0;
+        }
+    }, 3000);
+    function prev() {
+        index--;
+        if (index < 0) {
+            index = quotes.length - 1;
+        }
+        document.querySelector(".quotes").innerHTML = quotes[index];
+    }
+    function next() {
+        index++;
+        if (index >= quotes.length) {
+            index = 0;
+        }
+        document.querySelector(".quotes").innerHTML = quotes[index];
+    }
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            alert("🚀 Welcome! Let's stay focused and motivated until Exam Day!");
+        }, 5000);
+    });
+</script>
+</body>
+</html>
