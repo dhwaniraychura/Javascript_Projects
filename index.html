@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="./assets/CSS/bootstrap-icons.min.css">
     <!-- Boostrap CSS -->
     <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
+    <style>
+        .card-img-top{
+            height: 350px;
+            object-fit: cover;
+        }
+    </style>
 </head>
-
 <body>
 <header>
     <!--Navbar-->
@@ -36,55 +41,7 @@
 <main>
 <section class="mt-5">
     <div class="container">
-    <div class="row">
-        <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-            </div>
-        </div>
-         <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-            </div>
-        </div>
-         <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-            </div>
-        </div>
-         <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-            </div>
-        </div>
+    <div class="row" id="productList">
     </div>
 </div>
 </section>
@@ -94,6 +51,33 @@
 
     <!-- Bootstrap JS -->
     <script src="./assets/JS/bootstrap.bundle.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        function displayCard() {
+    const productList = document.getElementById("productList");
+    if (!productList) {
+        return;
+    }
+    productList.innerHTML = "";
+    products.forEach((p, index) => {
+        let card = document.createElement("div");
+        card.className = "col-3 mb-4";
+        card.innerHTML = `
+            <div class="card h-100 shadow-sm">
+                <img src="${p.images}" class="card-img-top" alt="${p.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${p.name}</h5>
+                    <p class="card-text">${p.des}</p>
+                    <p class="mb-1"><strong>Brand:</strong> ${p.brand}</p>
+                    <p class="mb-1"><strong>Price:</strong> ₹${p.price}</p>
+                    <a href="#" class="btn btn-dark w-100">Add to Cart</a>
+                </div>
+            </div>
+        `;
+        productList.appendChild(card);
+    });
+}
+          displayCard();
+    </script>
 </body>
-
 </html>
