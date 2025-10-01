@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie API</title>
+</head>
+<body>
+    <h1>Search Movie</h1>
+    <input type="text" id="movieSearch" placeholder="Enter Your Movie">
+    <button onclick="movie()" id="btn">Search</button>
+    <div id="movieResult"></div>
+    <script>
+      async  function movie(){
+            const Search = document.getElementById("movieSearch").value.trim();
+            if(!Search){
+                alert("Please Enter Your Movie...");
+                return;
+            }
+            const url = ` http://www.omdbapi.com/?t=${Search}&apikey=4a53956d`;
+            const res = await fetch(url);
+            const data = await res.json();
+            console.log(data);
+             const resultDiv = document.getElementById("movieResult");
+            resultDiv.innerHTML = ""; 
+
+            if(data.Response === "False"){  
+                resultDiv.innerHTML = `<p style="color:red;">❌ Invalid Movie! Please try again.</p>`;
+                return;
+            }
+            document.getElementById("movieResult").innerHTML = `
+                <h2>${data.Title}(${data.Year})</h2>
+                <p> <b>Realeased date</b> : ${data.Released}</p>
+                <img src="${data.Poster}"> 
+                <p><b>Actors</b> : ${data.Actors}</p>
+                <p><b>Director</b> : ${data.Director}</p>
+                <p><b>Genre</b> : ${data.Genre}</p>
+                <p><b>About</b> : ${data.Plot}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
